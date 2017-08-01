@@ -1,0 +1,40 @@
+{
+    "name": "wpouseele/oauth2-azurecosts",
+    "description": "Azure Costs OAuth 2.0 Client Provider for The PHP League OAuth2-Client",
+    "keywords": [
+        "oauth",
+        "oauth2",
+        "authorization",
+        "authentication",
+        "idp",
+        "identity",
+        "sso",
+        "single sign on",
+        "Azure Costs"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Wim Pouseele",
+            "email": "wim.pouseele@gmail.com"
+        }
+    ],
+    "require": {
+        "league/oauth2-client": "^2.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.0",
+        "mockery/mockery": "~0.9",
+        "squizlabs/php_codesniffer": "~2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "WPouseele\\OAuth2\\Client\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "WPouseele\\OAuth2\\Client\\Test\\": "test/src/"
+        }
+    }
+}
