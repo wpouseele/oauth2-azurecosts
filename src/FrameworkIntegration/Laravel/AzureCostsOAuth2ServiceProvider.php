@@ -4,7 +4,7 @@ use WPouseele\OAuth2\Client\Provider\AzureCosts;
 use Illuminate\Contracts\Config\Repository;
 use Illuminate\Support\ServiceProvider;
 
-class AzureCostsOAuth2ServiceProvider extends ServiceProvider
+class AzureCostsServiceProvider extends ServiceProvider
 {
     protected $defer = false;
     
@@ -12,7 +12,7 @@ class AzureCostsOAuth2ServiceProvider extends ServiceProvider
     {
         $this->publishes([
             __DIR__."/config/config.php" => config_path('oauth2-azurecosts.php')
-        ], 'oauth2-azurecosts');
+        ], 'config');
 
         $this->mergeConfigFrom(__DIR__."/config/config.php", 'oauth2-azurecosts');
 
