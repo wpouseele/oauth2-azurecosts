@@ -1,6 +1,6 @@
 <?php
 
-namespace ChrisHemmings\OAuth2\Client\Provider;
+namespace WPouseele\OAuth2\Client\Provider;
 
 use League\OAuth2\Client\Provider\ResourceOwnerInterface;
 

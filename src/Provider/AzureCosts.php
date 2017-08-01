@@ -44,7 +44,8 @@ class AzureCosts extends AbstractProvider
      */
     public function getResourceOwnerDetailsUrl(AccessToken $token)
     {
-        return 'https://api.digitalocean.com/v2/account?' . http_build_query(['access_token' => $token->getToken()]);
+        //return 'https://api.digitalocean.com/v2/account?' . http_build_query(['access_token' => $token->getToken()]);
+        return [];
     }
 
     /**
