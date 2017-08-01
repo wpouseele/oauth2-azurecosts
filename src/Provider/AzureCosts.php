@@ -20,7 +20,7 @@ class AzureCosts extends AbstractProvider
      */
     public function getBaseAuthorizationUrl()
     {
-        return 'https://cloud.digitalocean.com/v1/oauth/authorize';
+        return 'https://azure-costs.com/sts/issue/oauth/authorize';
     }
 
     /**
