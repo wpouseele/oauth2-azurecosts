@@ -12,7 +12,7 @@ class AzureCostsOAuth2ServiceProvider extends ServiceProvider
     {
         $this->publishes([
             __DIR__."/config/config.php" => config_path('oauth2-azurecosts.php')
-        ]);
+        ], 'oauth2-azurecosts');
 
         $this->mergeConfigFrom(__DIR__."/config/config.php", 'oauth2-azurecosts');
 
