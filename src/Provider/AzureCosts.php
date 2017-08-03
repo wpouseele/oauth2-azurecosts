@@ -46,7 +46,7 @@ class AzureCosts extends AbstractProvider
      */
     public function getBaseAuthorizationUrl()
     {
-        return 'https://azure-costs.com/sts/issue/oauth/authorize';
+        return 'https://azure-costs.com/sts/account/login';
     }
 
     /**
