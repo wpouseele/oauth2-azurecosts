@@ -10,7 +10,7 @@ class AzureCostsServiceProvider extends ServiceProvider
 {
     protected $defer = false;
     
-    public function boot()
+    public function boot(Repository $config)
     {
         $source = realpath($raw = __DIR__.'/config/oauth2-azurecosts.php') ?: $raw;
         

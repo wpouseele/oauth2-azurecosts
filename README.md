@@ -79,9 +79,9 @@ if (!isset($_GET['code'])) {
 ## Laravel Framework Integration
 
 This package includes Laravel framework integration if you need it. Simply require it as normal in your Laravel application,
-and add the Service Provider `WPouseele\OAuth2\Client\FrameworkIntegration\Laravel\AzureCostsOAuth2ServiceProvider::class` to your `config/app.php`.
+and add the Service Provider `WPouseele\OAuth2\Client\Laravel\AzureCostsServiceProvider::class` to your `config/app.php`.
 
-Next, publish the configuration with `php artisan vendor:publish --provider="WPouseele\OAuth2\Client\FrameworkIntegration\Laravel\AzureCostsServiceProvider" --tag=config`, and fill out your client
+Next, publish the configuration with `php artisan vendor:publish --provider="WPouseele\OAuth2\Client\\Laravel\AzureCostsServiceProvider" --tag=config`, and fill out your client
 details in the `config/oauth2-azurecosts/config.php` file that is generated.
 
 This will register bindings in the IoC container for the AzureCosts Provider, so you can simply typehint the
