@@ -12,7 +12,7 @@ class AzureCostsTest extends \PHPUnit_Framework_TestCase
 
     protected static function getMethod($name)
     {
-        $class = new ReflectionClass('ChrisHemmings\OAuth2\Client\Provider\DigitalOcean');
+        $class = new ReflectionClass('WPouseele\OAuth2\Client\Provider\AzureCosts');
         $method = $class->getMethod($name);
         $method->setAccessible(true);
         return $method;
@@ -20,7 +20,7 @@ class AzureCostsTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $this->provider = new DigitalOcean([
+        $this->provider = new AzureCosts([
             'clientId'      => 'mock_client_id',
             'clientSecret'  => 'mock_secret',
             'redirectUri'   => 'none',
@@ -52,7 +52,7 @@ class AzureCostsTest extends \PHPUnit_Framework_TestCase
     {
         $url = $this->provider->getAuthorizationUrl();
         $uri = parse_url($url);
-        $this->assertEquals('/v1/oauth/authorize', $uri['path']);
+        $this->assertEquals('sts/issue/oauth/authorize', $uri['path']);
     }
 
     public function testGetBaseAccessTokenUrl()
@@ -60,7 +60,7 @@ class AzureCostsTest extends \PHPUnit_Framework_TestCase
         $params = [];
         $url = $this->provider->getBaseAccessTokenUrl($params);
         $uri = parse_url($url);
-        $this->assertEquals('/v1/oauth/token', $uri['path']);
+        $this->assertEquals('/sts/issue/oauth/token', $uri['path']);
     }
 
     public function testGetAccessToken()
