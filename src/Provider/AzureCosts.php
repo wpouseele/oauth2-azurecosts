@@ -14,30 +14,23 @@ class AzureCosts extends AbstractProvider
     use BearerAuthorizationTrait;
 
     /**
-    * Signin
-    *
+     * Domain
+     *
+     * @var string
+     */
+    public $domain = 'https://azure-costs.com';
+
+    /**
+     * Api domain
+     *
+     * @var string
+     */
+    public $apiDomain = 'https:/api.azure-costs.com';
+
+    /**
+    * @var string Key used in the access token response to identify the resource owner.
     */
-    public function signin()
-    {
-        //if (session_status() == PHP_SESSION_NONE) {
-        //    session_start();
-        //}
-
-        // Initialize the OAuth client
-        $oauthClient = new \League\OAuth2\Client\Provider\GenericProvider([
-        'clientId'                => env('OAUTH_APP_ID'),
-        'clientSecret'            => env('OAUTH_APP_PASSWORD'),
-        'redirectUri'             => env('OAUTH_REDIRECT_URI'),
-        'urlAuthorize'            => env('OAUTH_AUTHORITY').env('OAUTH_AUTHORIZE_ENDPOINT'),
-        'urlAccessToken'          => env('OAUTH_AUTHORITY').env('OAUTH_TOKEN_ENDPOINT'),
-        'urlResourceOwnerDetails' => '',
-        'scopes'                  => env('OAUTH_SCOPES')
-        ]);
-
-        // Output the authorization endpoint
-        echo 'Auth URL: '.$oauthClient->getAuthorizationUrl();
-        exit();
-    }
+    const ACCESS_TOKEN_RESOURCE_OWNER_ID = null;
 
     /**
      * Get authorization url to begin OAuth flow
@@ -46,7 +39,8 @@ class AzureCosts extends AbstractProvider
      */
     public function getBaseAuthorizationUrl()
     {
-        return 'https://azure-costs.com/app/signin';
+        // return 'https://azure-costs.com/sts/issue/oauth/authorize?client_id=codefe&response_type=token&redirect_uri=https%3A%2F%2Fazure-costs.com%2Fapp%2Fsso%2Fcallback&state=https%3A%2F%2Fazure-costs.com%2Fapp%2Fsignin';
+        return $this->domain.'/sts/issue/oauth/authorize';
     }
 
     /**
@@ -58,7 +52,7 @@ class AzureCosts extends AbstractProvider
      */
     public function getBaseAccessTokenUrl(array $params)
     {
-        return 'https://azure-costs.com/sts/issue/oauth/token';
+        return $this->domain.'/sts/issue/oauth/token';
     }
 
     /**
@@ -115,4 +109,5 @@ class AzureCosts extends AbstractProvider
     {
         return new DigitalOceanResourceOwner($response);
     }
+
 }
