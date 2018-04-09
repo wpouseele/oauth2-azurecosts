@@ -39,7 +39,6 @@ class AzureCosts extends AbstractProvider
      */
     public function getBaseAuthorizationUrl()
     {
-        // return 'https://azure-costs.com/sts/issue/oauth/authorize?client_id=codefe&response_type=token&redirect_uri=https%3A%2F%2Fazure-costs.com%2Fapp%2Fsso%2Fcallback&state=https%3A%2F%2Fazure-costs.com%2Fapp%2Fsignin';
         return $this->domain.'/sts/issue/oauth/authorize';
     }
 
